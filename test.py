@@ -10,7 +10,5 @@ def test_sito_with_10():
 
 def test_sito_with_20():
     result = sito(20)
-    assert result == [2, 3, 5, 7, 11, 13, 17, 19]
-
-
+    assert result ==[2, 3, 5, 7, 11, 13, 17, 19]
 

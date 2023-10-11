@@ -8,9 +8,4 @@ def sito(number: int):
             primes.append(i)
     return primes
 
-num = int(input("Podaj liczbę: "))
-
-primes_list = sito(num)
-
-for i in primes_list:
-    print(i)
+print(sito(10))

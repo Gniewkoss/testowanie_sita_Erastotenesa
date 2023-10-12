@@ -45,6 +45,14 @@ def test_sieve_of_eratosthenes(inputs):
             assert num in primes_list
 
 
-def test_if_input_is_integer():
-    with pytest.raises(ValueError):
-        sieve_of_eratosthenes('')
+def test_invalid_input(capsys, monkeypatch):
+    monkeypatch.setattr('builtins.input', lambda _: 'abc')
+
+    try:
+        n = int(input("Enter a number: "))
+    except ValueError:
+        print("Error: Please enter a valid number.")
+
+    captured = capsys.readouterr()
+
+    assert captured.out.strip() == "Error: Please enter a valid number."

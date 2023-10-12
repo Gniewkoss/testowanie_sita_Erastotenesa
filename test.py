@@ -43,3 +43,8 @@ def test_sieve_of_eratosthenes(inputs):
     for primes_list in inputs:
         for num in primes_list:
             assert num in primes_list
+
+
+def test_if_input_is_integer():
+    with pytest.raises(ValueError):
+        sieve_of_eratosthenes('')

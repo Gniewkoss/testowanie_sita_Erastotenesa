@@ -24,6 +24,9 @@ def process_prime_numbers(primes):
             print(num)
 
 if __name__ == "__main__":
-    n = int(input("Enter a number: "))
-    primes = sieve_of_eratosthenes(n)
-    process_prime_numbers(primes)
+    try:
+        n = int(input("Enter a number: "))
+        primes = sieve_of_eratosthenes(n)
+        process_prime_numbers(primes)
+    except ValueError:
+        print("Error: Please enter a valid number.")

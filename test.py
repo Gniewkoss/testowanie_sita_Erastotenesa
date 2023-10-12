@@ -38,3 +38,8 @@ def test_process_prime_numbers(capsys, primes, not_prime_inputs):
 
     assert captured.out.strip() == ''
 
+
+def test_sieve_of_eratosthenes(inputs):
+    for primes_list in inputs:
+        for num in primes_list:
+            assert num in primes_list

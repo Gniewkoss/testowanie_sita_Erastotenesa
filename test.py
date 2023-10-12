@@ -25,3 +25,16 @@ def test_is_prime_false(not_prime_inputs):
     for num in not_prime_inputs:
         assert is_prime(num) == False
 
+def test_process_prime_numbers(capsys, primes, not_prime_inputs):
+
+    process_prime_numbers(primes)
+    captured = capsys.readouterr()
+
+    expected_output = '\n'.join(map(str, primes))
+    assert captured.out.strip() == expected_output
+
+    process_prime_numbers(not_prime_inputs)
+    captured = capsys.readouterr()
+
+    assert captured.out.strip() == ''
+

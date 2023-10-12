@@ -11,6 +11,10 @@ def inputs():
 def not_prime_inputs():
     return [i for i in range(2, 1000) if i not in sieve_of_eratosthenes(i)]
 
+@pytest.fixture
+def primes():
+    return sieve_of_eratosthenes(1000)
+
 def test_sieve_is_prime(inputs):
     for primes_list in inputs:
         for num in primes_list:
@@ -20,3 +24,4 @@ def test_sieve_is_prime(inputs):
 def test_is_prime_false(not_prime_inputs):
     for num in not_prime_inputs:
         assert is_prime(num) == False
+

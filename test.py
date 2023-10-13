@@ -25,6 +25,17 @@ def test_is_prime_false(not_prime_inputs):
     for num in not_prime_inputs:
         assert is_prime(num) == False
 
+def test_number_bigger_than_2():
+    assert is_prime(1) == False
+
+def test_is_prime_true(primes):
+    primes = primes
+    for num in primes:
+        assert is_prime(num) == True
+
+
+
+
 def test_process_prime_numbers(capsys, primes, not_prime_inputs):
 
     process_prime_numbers(primes)
@@ -44,15 +55,3 @@ def test_sieve_of_eratosthenes(inputs):
         for num in primes_list:
             assert num in primes_list
 
-
-def test_invalid_input(capsys, monkeypatch):
-    monkeypatch.setattr('builtins.input', lambda _: 'abc')
-
-    try:
-        n = int(input("Enter a number: "))
-    except ValueError:
-        print("Error: Please enter a valid number.")
-
-    captured = capsys.readouterr()
-
-    assert captured.out.strip() == "Error: Please enter a valid number."
